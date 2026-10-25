@@ -2,20 +2,15 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { demoCareTimeline, demoPatient } from "@/data/patient-demo";
-import { Badge } from "@/components/ui/Badge";
+import { demoCareTimeline } from "@/data/patient-demo";
+import { Badge, type BadgeProps } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import {
   Clock,
-  Calendar,
   FileText,
   Glasses,
   Eye,
-  CheckCircle2,
   ArrowRight,
-  Filter,
-  ShieldCheck,
-  ChevronRight,
   Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -112,7 +107,7 @@ export default function PatientTimelinePage() {
                     <span className="text-xs font-bold text-deep-ink">
                       {evt.date}
                     </span>
-                    <Badge variant={evt.badgeVariant as any} size="sm">
+                    <Badge variant={evt.badgeVariant as BadgeProps["variant"]} size="sm">
                       {evt.statusBadge}
                     </Badge>
                   </div>

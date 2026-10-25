@@ -1,10 +1,17 @@
 import React from "react";
+import type { Metadata } from "next";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
 import { DemoModeBanner } from "@/components/common/DemoModeBanner";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { PractitionerSection } from "@/components/marketing/PractitionerSection";
 import { TrustPillars } from "@/components/common/TrustPillars";
+
+export const metadata: Metadata = {
+  title: "Clinical Network for Optometrists & Ophthalmologists",
+  description:
+    "Collaborative clinical care network connecting qualified optometrists and consulting ophthalmologists with hospital referral coordination.",
+};
 
 export default function ForPractitionersPage() {
   return (

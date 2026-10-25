@@ -1,13 +1,19 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
 import { DemoModeBanner } from "@/components/common/DemoModeBanner";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { TrustPillars } from "@/components/common/TrustPillars";
 import { Button } from "@/components/ui/Button";
-import { ShieldCheck, Eye, Heart, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "About Our Clinical Mission & Governance",
+  description:
+    "Learn about OcuHome's founding mission: accurate, unhurried primary eye examinations delivered at home with strict clinical governance.",
+};
 
 export default function AboutPage() {
   return (

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { siteConfig } from "@/config/site";
+import { BrandLogo } from "@/components/common/BrandLogo";
 import { Button } from "@/components/ui/Button";
 import {
   Menu,
@@ -13,10 +13,6 @@ import {
   ShieldCheck,
   Stethoscope,
   Eye,
-  Building,
-  HeartHandshake,
-  ArrowRight,
-  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -48,19 +44,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* 1. OcuHome Brand Logo */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
-            <div className="w-10 h-10 rounded-lg bg-deep-ink text-warm-ivory flex items-center justify-center font-serif text-2xl font-bold tracking-tight group-hover:bg-clinical-teal transition-colors">
-              O
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="text-xl font-bold font-sans tracking-tight text-deep-ink leading-tight">
-                {siteConfig.name}
-              </span>
-              <span className="text-[10px] font-semibold tracking-wider text-clinical-slate uppercase font-sans">
-                Clinical Eye Care
-              </span>
-            </div>
-          </Link>
+          <BrandLogo />
 
           {/* 2. Desktop Navigation Links (Single Line, Deliberate Spacing) */}
           <nav

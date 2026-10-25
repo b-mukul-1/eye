@@ -4,17 +4,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { Badge, ClinicalStatusBadge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 import {
   FileText,
-  Clock,
   Eye,
   Activity,
   CheckCircle2,
-  Calendar,
-  Download,
   ShieldCheck,
-  User,
   ArrowRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";

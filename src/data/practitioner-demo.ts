@@ -1,4 +1,4 @@
-import { Appointment, ClinicalEncounter, PatientRecord } from "@/types/clinical";
+import { Appointment } from "@/types/clinical";
 
 export interface PractitionerProfile {
   id: string;
@@ -18,7 +18,7 @@ export const demoPractitioner: PractitionerProfile = {
   name: "Priya Sharma, B.Optom",
   role: "Optometrist",
   title: "Visiting Clinical Optometrist",
-  registrationNumber: "OCI-OPT-10928 (Delhi Optometry Council)",
+  registrationNumber: "Schema Sample (e.g. OCI-OPT-10928)",
   metroHub: "South Delhi Clinical Hub (Saket)",
   activeShiftStatus: "On Route",
   assignedKitId: "Mobile Diagnostic Unit #04 (Calibrated 15 Oct 2026)",
@@ -31,7 +31,7 @@ export const demoOphthalmologist: PractitionerProfile = {
   name: "Dr. Ananya Rao, MS",
   role: "Ophthalmologist",
   title: "Senior Consulting Ophthalmologist",
-  registrationNumber: "DMC-48291 (Delhi Medical Council)",
+  registrationNumber: "Schema Sample (e.g. DMC-48291)",
   metroHub: "South Extension Specialist Suite, New Delhi",
   activeShiftStatus: "In Consultation",
   assignedKitId: "Digital Review Station #01",

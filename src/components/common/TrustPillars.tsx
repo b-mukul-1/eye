@@ -1,5 +1,5 @@
 import React from "react";
-import { Check, AlertCircle, ArrowUpRight, ShieldCheck, Microscope, Stethoscope } from "lucide-react";
+import { Check, AlertCircle, ShieldCheck, Microscope, Stethoscope } from "lucide-react";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 
 export function TrustPillars() {

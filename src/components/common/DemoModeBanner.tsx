@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { Info, User, Stethoscope, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { cn } from "@/lib/utils";
 
@@ -36,7 +35,7 @@ export function DemoModeBanner({
           </span>
           <span className="hidden sm:inline text-clinical-slate">
             All records and telemetry use clearly labelled synthetic demonstration data. Real
-            HIPAA/DISHA-compliant backend connects in Phase 2.
+            DPDP (2023) and ABDM-aligned clinical backend connects in Phase 2.
           </span>
         </div>
 

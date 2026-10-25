@@ -6,19 +6,14 @@ import { FamilyMember } from "@/types/clinical";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import {
-  User,
   Users,
   Phone,
   Mail,
   MapPin,
   ShieldCheck,
-  ShieldAlert,
-  AlertCircle,
   CheckCircle2,
   Lock,
   Plus,
-  Trash2,
-  Info,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -60,7 +55,7 @@ export default function PatientProfilePage() {
       age: 32,
       phone: newMemberPhone,
       isAuthorizedCaregiver: true,
-      consentGrantedDate: "Today (DPDP Compliant)",
+      consentGrantedDate: "Today (Documented)",
     };
 
     setFamilyMembers([...familyMembers, newMember]);
@@ -216,7 +211,7 @@ export default function PatientProfilePage() {
 
           <div className="flex items-center gap-1.5 text-xs text-clinical-teal">
             <ShieldCheck className="w-4 h-4" />
-            <span className="font-semibold">DPDP Consent Governed</span>
+            <span className="font-semibold">Caregiver Consent Workflow</span>
           </div>
         </div>
 

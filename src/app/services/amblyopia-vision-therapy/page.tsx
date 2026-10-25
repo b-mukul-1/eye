@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/common/Navbar";
@@ -7,7 +8,13 @@ import { DemoModeBanner } from "@/components/common/DemoModeBanner";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { Check, AlertCircle, ArrowRight, Eye, ShieldCheck, Heart, Sparkles, BookOpen } from "lucide-react";
+import { ArrowRight, ShieldCheck } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Amblyopia Assessment & Pediatric Vision Therapy",
+  description:
+    "Structured optometric evaluation and clinician-directed vision therapy for childhood amblyopia, binocular anomalies, and visual development.",
+};
 
 export default function AmblyopiaVisionTherapyPage() {
   return (
@@ -46,7 +53,7 @@ export default function AmblyopiaVisionTherapyPage() {
               </LeadParagraph>
 
               <p className="text-sm text-clinical-slate leading-relaxed">
-                Treatment pathways depend fundamentally on the child's age, underlying cause (such
+                Treatment pathways depend fundamentally on the child&apos;s age, underlying cause (such
                 as uncorrected anisometropia or strabismus), and individual binocular status. We do
                 not promise instant or guaranteed cures; instead, we follow structured, verified
                 optometric therapy and progress monitoring.

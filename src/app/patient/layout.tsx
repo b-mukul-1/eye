@@ -5,17 +5,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DemoModeBanner } from "@/components/common/DemoModeBanner";
 import { siteConfig } from "@/config/site";
+import { BrandLogoMark } from "@/components/common/BrandLogo";
 import { demoPatient } from "@/data/patient-demo";
 import {
-  User,
   Calendar,
   FileText,
   Clock,
   Users,
   LogOut,
   ShieldCheck,
-  AlertTriangle,
-  ArrowRight,
   Eye,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -68,9 +66,7 @@ export default function PatientLayout({ children }: { children: React.ReactNode 
             {/* Brand Logo & Portal Name */}
             <div className="flex items-center gap-3">
               <Link href="/" className="flex items-center gap-2 group">
-                <div className="w-9 h-9 rounded-lg bg-deep-ink text-warm-ivory flex items-center justify-center font-serif text-xl font-bold group-hover:bg-clinical-teal transition-colors">
-                  O
-                </div>
+                <BrandLogoMark className="w-9 h-9" />
                 <div className="flex flex-col text-left">
                   <span className="text-base font-bold text-deep-ink leading-tight">
                     {siteConfig.name}
@@ -123,7 +119,7 @@ export default function PatientLayout({ children }: { children: React.ReactNode 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <div className="flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-clinical-teal" />
-            <span>Digital Personal Data Protection (DPDP) consent logged. Records accessible only by patient and authorized caregivers.</span>
+            <span>Prototype Demonstration: Caregiver access authorization modeled under DPDP privacy principles.</span>
           </div>
           <div>
             Need assistance? Patient Desk: <strong>+91 11 4000 8900</strong> (Mon&ndash;Sat, 9 AM&ndash;6 PM)

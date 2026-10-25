@@ -1,26 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import { demoPatient, demoEncounters } from "@/data/patient-demo";
-import { Badge, ClinicalStatusBadge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import { demoEncounters } from "@/data/patient-demo";
+import { Badge } from "@/components/ui/Badge";
 import {
   FileText,
   Download,
-  Calendar,
   CheckCircle2,
   Eye,
   ShieldCheck,
   Glasses,
   Activity,
   Layers,
-  ArrowRight,
-  ExternalLink,
-  Info,
-  Clock,
   Sparkles,
-  Paperclip,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -85,7 +77,7 @@ export default function PatientRecordsPage() {
         <div className="p-4 bg-soft-sage/60 border border-clinical-teal/30 rounded-xl text-xs text-clinical-teal font-medium flex items-center gap-2 animate-fade-in">
           <CheckCircle2 className="w-4 h-4 shrink-0" />
           <span>
-            Spectacle prescription card (PDF) downloaded successfully. Signed by Dr. Ananya Rao (DMC-48291).
+            Spectacle prescription card (PDF) downloaded successfully. Sample schema signed by Dr. Ananya Rao (Demonstration Profile).
           </span>
         </div>
       )}

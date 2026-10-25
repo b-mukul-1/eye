@@ -2,12 +2,11 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { Input, Select } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
-import { Stethoscope, CheckCircle2, ShieldCheck, ArrowRight, Building, Award } from "lucide-react";
+import { CheckCircle2, ShieldCheck } from "lucide-react";
 
 export function PractitionerSection() {
   const [submitted, setSubmitted] = useState(false);

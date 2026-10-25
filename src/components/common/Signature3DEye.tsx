@@ -33,7 +33,7 @@ export function Signature3DEye({
     const ctx = canvas.getContext("2d");
 
     if (!ctx) {
-      setHasWebGL(false);
+      queueMicrotask(() => setHasWebGL(false));
       return;
     }
 
@@ -143,7 +143,7 @@ export function Signature3DEye({
         powerPreference: "low-power",
       });
     } catch {
-      setHasWebGL(false);
+      queueMicrotask(() => setHasWebGL(false));
       return;
     }
 
@@ -187,7 +187,7 @@ export function Signature3DEye({
     const targetRot = { x: 0, y: 0 };
     let lastMouseMove = performance.now();
     let nextSaccade = performance.now() + 2600;
-    let saccadeOffset = { x: 0, y: 0 };
+    const saccadeOffset = { x: 0, y: 0 };
 
     const handlePointerMove = (e: MouseEvent) => {
       if (!enableHoverGaze) return;

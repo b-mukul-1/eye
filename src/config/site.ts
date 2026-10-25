@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "OcuHome",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://ocuhome.in",
   tagline: "Clinical Eye Care Delivered at Home",
   description:
     "Qualified optometrist home examinations with remote ophthalmologist review across India. Clinical precision, specialized services, and ethical specialist referrals.",

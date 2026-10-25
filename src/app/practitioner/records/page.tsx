@@ -2,24 +2,12 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { demoPatient, demoEncounters } from "@/data/patient-demo";
-import { demoPractitioner } from "@/data/practitioner-demo";
+import { demoEncounters } from "@/data/patient-demo";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 import {
   Search,
   ShieldCheck,
-  ShieldAlert,
-  User,
-  FileText,
-  Calendar,
-  Eye,
-  Activity,
   ArrowRight,
-  ExternalLink,
-  Lock,
-  ChevronDown,
-  Clock,
   History,
 } from "lucide-react";
 import { cn } from "@/lib/utils";

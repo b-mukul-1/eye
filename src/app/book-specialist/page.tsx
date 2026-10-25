@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, Suspense } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
@@ -17,21 +16,15 @@ import {
   type SpecialistProfile,
 } from "@/data/specialists";
 import {
-  Calendar,
   Clock,
   MapPin,
   CheckCircle2,
   AlertCircle,
   ShieldCheck,
-  User,
   ArrowRight,
-  ArrowLeft,
   Building,
   Home,
   Globe,
-  Sparkles,
-  Phone,
-  Mail,
   HelpCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -41,11 +34,25 @@ function BookSpecialistContent() {
   const preselectedService = searchParams.get("service") || "all";
   const preselectedSpecialist = searchParams.get("specialist") || "";
 
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [selectedSpecialist, setSelectedSpecialist] = useState<SpecialistProfile | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<string>(() => {
+    if (preselectedService && preselectedService !== "all") {
+      const match = specialistCategories.find(
+        (c) => c.id === preselectedService || c.id.includes(preselectedService)
+      );
+      if (match) return match.id;
+    }
+    return "all";
+  });
+
+  const [selectedSpecialist, setSelectedSpecialist] = useState<SpecialistProfile | null>(() => {
+    if (preselectedSpecialist) {
+      return specialistProfiles.find((s) => s.id === preselectedSpecialist) || null;
+    }
+    return null;
+  });
 
   // Appointment Configuration State
-  const [bookingStep, setBookingStep] = useState<1 | 2 | 3>(1); // 1: Browse/Select, 2: Slot & Details, 3: Confirmation
+  const [bookingStep, setBookingStep] = useState<1 | 2 | 3>(() => (preselectedSpecialist ? 2 : 1)); // 1: Browse/Select, 2: Slot & Details, 3: Confirmation
   const [careSetting, setCareSetting] = useState<"clinic-appointment" | "home-visit">("clinic-appointment");
   const [selectedDate, setSelectedDate] = useState("2026-10-28");
   const [selectedTimeSlot, setSelectedTimeSlot] = useState("11:00 AM – 12:00 PM");
@@ -62,26 +69,9 @@ function BookSpecialistContent() {
     needAssistance: false,
   });
 
+  const [formError, setFormError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [generalEnquiryMode, setGeneralEnquiryMode] = useState(false);
-
-  // Sync query params
-  useEffect(() => {
-    if (preselectedService && preselectedService !== "all") {
-      const match = specialistCategories.find(
-        (c) => c.id === preselectedService || c.id.includes(preselectedService)
-      );
-      if (match) setSelectedCategory(match.id);
-    }
-    if (preselectedSpecialist) {
-      const specMatch = specialistProfiles.find((s) => s.id === preselectedSpecialist);
-      if (specMatch) {
-        setSelectedSpecialist(specMatch);
-        setBookingStep(2);
-      }
-    }
-  }, [preselectedService, preselectedSpecialist]);
 
   // Filter specialists by category
   const filteredSpecialists = specialistProfiles.filter((s) => {
@@ -107,21 +97,26 @@ function BookSpecialistContent() {
     if (specialist.clinicLocations.length > 0) {
       setSelectedLocation(specialist.clinicLocations[0]);
     }
+    setFormError("");
     setBookingStep(2);
     window.scrollTo({ top: 300, behavior: "smooth" });
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!patientForm.fullName || !patientForm.phone) {
-      alert("Please provide the patient full name and contact phone number.");
+    if (!patientForm.fullName.trim()) {
+      setFormError("Please enter the patient's full name.");
       return;
     }
+    if (!patientForm.phone.trim() || patientForm.phone.trim().length < 10) {
+      setFormError("Please enter a valid 10-digit contact mobile number.");
+      return;
+    }
+    setFormError("");
     setIsSubmitting(true);
     // Simulate brief request compilation
     setTimeout(() => {
       setIsSubmitting(false);
-      setIsSubmitted(true);
       setBookingStep(3);
       window.scrollTo({ top: 200, behavior: "smooth" });
     }, 400);
@@ -316,9 +311,14 @@ function BookSpecialistContent() {
                         <div className="space-y-1 flex-1">
                           <div className="flex flex-wrap items-center justify-between gap-1">
                             <h3 className="text-lg font-bold text-deep-ink">{specialist.name}</h3>
-                            <Badge variant="clinical" size="sm">
-                              {specialist.experienceYears}+ yrs exp
-                            </Badge>
+                            <div className="flex items-center gap-1.5">
+                              <Badge variant="neutral" size="sm" className="text-[10px] bg-warm-neutral/60 text-clinical-slate border-clinical-border">
+                                Demo Profile
+                              </Badge>
+                              <Badge variant="clinical" size="sm">
+                                {specialist.experienceYears}+ yrs exp
+                              </Badge>
+                            </div>
                           </div>
                           <div className="text-xs font-semibold text-clinical-teal">
                             {specialist.title}
@@ -629,6 +629,13 @@ function BookSpecialistContent() {
                   />
                 </div>
 
+                {formError && (
+                  <div className="p-3.5 rounded-xl bg-subtle-amber-light border border-subtle-amber/40 text-xs font-semibold text-subtle-amber-dark flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>{formError}</span>
+                  </div>
+                )}
+
                 {/* Demonstration Notice & Submit */}
                 <div className="bg-warm-neutral/30 border border-clinical-border rounded-xl p-4 text-xs text-clinical-slate flex items-start gap-2.5">
                   <ShieldCheck className="w-4 h-4 text-clinical-teal shrink-0 mt-0.5" />
@@ -721,7 +728,6 @@ function BookSpecialistContent() {
                   onClick={() => {
                     setBookingStep(1);
                     setSelectedSpecialist(null);
-                    setIsSubmitted(false);
                   }}
                 >
                   Browse Other Specialists

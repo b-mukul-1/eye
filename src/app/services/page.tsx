@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/common/Navbar";
@@ -7,19 +8,13 @@ import { DemoModeBanner } from "@/components/common/DemoModeBanner";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import {
-  Check,
-  AlertCircle,
-  ArrowRight,
-  ShieldCheck,
-  Microscope,
-  Eye,
-  Activity,
-  Heart,
-  Sparkles,
-  Building,
-  UserCheck,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Clinical Eye-Care Services & Examination Scope",
+  description:
+    "Comprehensive home eye diagnostics, subjective refraction, diabetic retinal triage, glaucoma tonometry, and specialist eye care referrals across India.",
+};
 
 export default function ServicesPage() {
   return (
@@ -291,7 +286,7 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className="lg:col-span-5 relative aspect-[4/3] rounded-xl overflow-hidden border border-clinical-border">
-                  <Image src="/images/hero-home-exam.jpg" alt="Refraction exam" fill className="object-cover" />
+                  <Image src="/images/family-care-moment.jpg" alt="Refraction exam" fill className="object-cover" />
                 </div>
               </div>
 

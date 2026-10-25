@@ -5,31 +5,34 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DemoModeBanner } from "@/components/common/DemoModeBanner";
 import { siteConfig } from "@/config/site";
+import { BrandLogoMark } from "@/components/common/BrandLogo";
 import { demoPractitioner, demoOphthalmologist } from "@/data/practitioner-demo";
 import {
   Calendar,
   ClipboardList,
-  Eye,
   FileCheck,
   LogOut,
   ShieldCheck,
   Stethoscope,
   Truck,
-  AlertTriangle,
-  UserCheck,
-  Layers,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-function PractitionerNav() {
+function PractitionerNav({ activeRole }: { activeRole: "optometrist" | "ophthalmologist" }) {
   const pathname = usePathname();
 
-  const navItems = [
-    { label: "Today's Visits", href: "/practitioner/visits", icon: Calendar },
-    { label: "Clinical Examination", href: "/practitioner/examine/apt-2026-1028", icon: Stethoscope },
-    { label: "Authorized Records", href: "/practitioner/records", icon: ClipboardList },
-    { label: "MD Review Queue", href: "/practitioner/reviews", icon: FileCheck },
-  ];
+  const navItems =
+    activeRole === "optometrist"
+      ? [
+          { label: "Today's Route Schedule", href: "/practitioner/visits", icon: Calendar },
+          { label: "Active Bedside Examination", href: "/practitioner/examine/apt-2026-1028", icon: Stethoscope },
+          { label: "Authorized Patient Records", href: "/practitioner/records", icon: ClipboardList },
+        ]
+      : [
+          { label: "MD Tele-Review Queue (Pending Countersignature)", href: "/practitioner/reviews", icon: FileCheck },
+          { label: "Authorized Patient Records", href: "/practitioner/records", icon: ClipboardList },
+          { label: "Diagnostic Protocol Reference", href: "/practitioner/examine/apt-2026-1028", icon: Stethoscope },
+        ];
 
   return (
     <nav className="flex items-center gap-1 overflow-x-auto border-t border-white/10 py-1.5 text-xs">
@@ -72,9 +75,7 @@ export default function PractitionerLayout({ children }: { children: React.React
             {/* Brand Logo & Portal Name */}
             <div className="flex items-center gap-3">
               <Link href="/" className="flex items-center gap-2 group">
-                <div className="w-9 h-9 rounded-lg bg-warm-ivory text-deep-ink flex items-center justify-center font-serif text-xl font-bold group-hover:bg-clinical-teal group-hover:text-warm-ivory transition-colors">
-                  O
-                </div>
+                <BrandLogoMark variant="inverted" className="w-9 h-9" />
                 <div className="flex flex-col text-left">
                   <span className="text-base font-bold text-warm-ivory leading-tight">
                     {siteConfig.name}
@@ -141,7 +142,7 @@ export default function PractitionerLayout({ children }: { children: React.React
 
           {/* Navigation Tabs wrapped in Suspense */}
           <React.Suspense fallback={<div className="h-9" />}>
-            <PractitionerNav />
+            <PractitionerNav activeRole={activeRole} />
           </React.Suspense>
         </div>
       </header>
@@ -165,7 +166,7 @@ export default function PractitionerLayout({ children }: { children: React.React
 
           <div className="flex items-center gap-2 text-clinical-slate text-[11px]">
             <ShieldCheck className="w-3.5 h-3.5 text-clinical-teal" />
-            <span>DPDP Audited Access: <strong>{currentProfile.patientsInCareRelationshipCount} Patients</strong> in Authorized Care Relationship</span>
+            <span>Authorized Care Relationship: <strong>{currentProfile.patientsInCareRelationshipCount} Patients</strong> Assigned</span>
           </div>
         </div>
       </div>
@@ -182,11 +183,9 @@ export default function PractitionerLayout({ children }: { children: React.React
             &copy; 2026 {siteConfig.name} Clinical Health Network &bull; Clinical Portal v1.4
           </div>
           <div className="flex items-center gap-4 text-[11px]">
-            <span>Delhi Optometry Council OCI-10928</span>
+            <span>Illustrative Demonstration Workspace</span>
             <span>&bull;</span>
-            <span>Delhi Medical Council DMC-48291</span>
-            <span>&bull;</span>
-            <span className="text-clinical-teal font-semibold">HIPAA / DPDP Audit Active</span>
+            <span className="text-clinical-teal font-semibold">Privacy-by-Design Architecture &bull; DPDP &amp; ABDM Preparedness</span>
           </div>
         </div>
       </footer>

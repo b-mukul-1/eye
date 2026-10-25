@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
+import { BrandLogo } from "@/components/common/BrandLogo";
 import { ShieldCheck, HeartHandshake, FileText, Phone, Mail, MapPin, Download } from "lucide-react";
 
 export function Footer() {
@@ -57,14 +58,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand & Mission */}
           <div className="lg:col-span-2 space-y-4 text-left">
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-clinical-teal text-warm-ivory flex items-center justify-center font-serif text-xl font-bold">
-                O
-              </div>
-              <span className="text-2xl font-bold tracking-tight text-warm-ivory">
-                {siteConfig.name}
-              </span>
-            </div>
+            <BrandLogo variant="inverted" size="md" showTagline={false} />
             <p className="text-warm-ivory/70 text-sm leading-relaxed max-w-sm">
               Thoughtful clinical eye care delivered to residences, specialized clinic suites,
               and workplaces, starting with pilot routes in select Delhi NCR localities.

@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/Button";
 import { Input, Select } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
 import { siteConfig } from "@/config/site";
-import { Phone, Mail, Clock, MapPin, AlertTriangle, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Phone, Mail, Clock, MapPin, AlertTriangle, CheckCircle2 } from "lucide-react";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);

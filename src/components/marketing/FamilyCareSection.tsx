@@ -1,9 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
-import { Heart, Users, ShieldCheck, ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 export function FamilyCareSection() {
   return (

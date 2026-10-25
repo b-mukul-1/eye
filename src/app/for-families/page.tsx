@@ -1,13 +1,17 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import type { Metadata } from "next";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
-import { DemoModeBanner } from "@/components/common/DemoModeBanner";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { FamilyCareSection } from "@/components/marketing/FamilyCareSection";
 import { Button } from "@/components/ui/Button";
-import { ArrowRight, Check, Heart, ShieldCheck, Users } from "lucide-react";
+import { ArrowRight, Heart, Users, ShieldCheck } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Eye Care for Families & Aging Parents",
+  description:
+    "Dignified, unhurried home eye examinations for older adults and busy families without the physical stress of hospital waiting rooms.",
+};
 
 export default function ForFamiliesPage() {
   return (
@@ -41,7 +45,7 @@ export default function ForFamiliesPage() {
                 <h3 className="text-base font-bold text-deep-ink">No Traumatic Clinic Commutes</h3>
                 <p className="text-xs text-clinical-slate leading-relaxed">
                   Avoid navigating congested metro traffic, steep hospital stairs, and wheelchair
-                  transfers. The optometrist brings everything required to the patient's chair.
+                  transfers. The optometrist brings everything required to the patient&apos;s chair.
                 </p>
               </div>
 

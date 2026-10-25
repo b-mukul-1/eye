@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/common/Navbar";
@@ -7,7 +8,13 @@ import { DemoModeBanner } from "@/components/common/DemoModeBanner";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { Check, ShieldCheck, ArrowRight, Heart, Sparkles, Building, Lock } from "lucide-react";
+import { ArrowRight, Building } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Custom Ocular Prosthetics & Anophthalmic Care",
+  description:
+    "Bespoke prosthetic eye consultations, impression fitting coordination, scleral shells, and long-term socket health maintenance.",
+};
 
 export default function ProstheticEyeServicesPage() {
   return (

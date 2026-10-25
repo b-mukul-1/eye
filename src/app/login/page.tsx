@@ -6,9 +6,8 @@ import { useRouter } from "next/navigation";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
 import { DemoModeBanner } from "@/components/common/DemoModeBanner";
-import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
-import { Input, Select } from "@/components/ui/Input";
+import { Input } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
 import {
   User,
@@ -16,14 +15,10 @@ import {
   Stethoscope,
   Eye,
   EyeOff,
-  Lock,
   ArrowRight,
   AlertCircle,
-  CheckCircle2,
   Phone,
-  FileText,
 } from "lucide-react";
-import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
 export default function LoginPage() {
@@ -34,8 +29,8 @@ export default function LoginPage() {
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [showForgotTip, setShowForgotTip] = useState(false);
   const [practitionerRole, setPractitionerRole] = useState<"optometrist" | "ophthalmologist">("optometrist");
-  const [practitionerCouncil, setPractitionerCouncil] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -169,12 +164,18 @@ export default function LoginPage() {
                     </label>
                     <button
                       type="button"
-                      onClick={() => alert("Demonstration mode: Use any test password or click Quick Demo Sign-In below.")}
+                      onClick={() => setShowForgotTip((prev) => !prev)}
                       className="text-[11px] text-clinical-teal hover:underline"
                     >
                       Forgot passcode?
                     </button>
                   </div>
+
+                  {showForgotTip && (
+                    <div className="p-2.5 rounded-lg bg-soft-sage/60 border border-clinical-teal/30 text-[11px] text-deep-ink animate-fade-in">
+                      <strong>Demonstration Access:</strong> You can enter any test password or use the instant Quick Demo Sign-In shortcuts below.
+                    </div>
+                  )}
 
                   <div className="relative flex items-center">
                     <input
@@ -279,11 +280,7 @@ export default function LoginPage() {
 
                 <Input
                   label="Council Registration Number or Clinical Email"
-                  placeholder={
-                    practitionerRole === "optometrist"
-                      ? "e.g. OCI-OPT-10928 or doctor@ocuhome.in"
-                      : "e.g. DMC-48291 or doctor@ocuhome.in"
-                  }
+                  placeholder="e.g. State Council Registration or clinician@ocuhome.in"
                   required
                   value={identifier}
                   onChange={(e) => setIdentifier(e.target.value)}

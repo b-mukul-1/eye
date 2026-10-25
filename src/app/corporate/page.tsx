@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
 import { DemoModeBanner } from "@/components/common/DemoModeBanner";
@@ -9,7 +8,7 @@ import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/T
 import { Button } from "@/components/ui/Button";
 import { Input, Select } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
-import { Download, FileText, Building2, CheckCircle2, ShieldCheck, ArrowRight, MonitorCheck } from "lucide-react";
+import { Download, FileText, Building2, CheckCircle2, ShieldCheck, MonitorCheck } from "lucide-react";
 
 export default function CorporatePage() {
   const [submitted, setSubmitted] = useState(false);
@@ -59,13 +58,13 @@ export default function CorporatePage() {
                 OcuHome Corporate Eye-Care Overview
               </h4>
               <p className="text-xs text-clinical-slate leading-relaxed">
-                Download the complete 2-page clinical program brochure detailing on-site diagnostic
+                Download the complete 4-page clinical program brochure detailing on-site diagnostic
                 suites, triage tiers, and executive home-visit extensions.
               </p>
               <div className="pt-2">
                 <a
-                  href="/downloads/ocuhome-corporate-eyecare-brochure.pdf"
-                  download="ocuhome-corporate-eyecare-brochure.pdf"
+                  href="/downloads/ocuhome-corporate-eye-camps-brochure.pdf"
+                  download="ocuhome-corporate-eye-camps-brochure.pdf"
                   className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-clinical-teal text-white hover:bg-clinical-teal-dark font-medium text-xs shadow-subtle transition-colors cursor-pointer"
                 >
                   <Download className="w-4 h-4" />

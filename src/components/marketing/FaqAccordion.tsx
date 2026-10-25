@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FaqItem {

@@ -102,7 +102,7 @@ export function SignatureEyeViewer({ className }: { className?: string }) {
         <div>
           <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-clinical-slate mb-1">
             <Sparkles className="w-3.5 h-3.5 text-clinical-teal" />
-            <span>Signature Clinical Visual</span>
+            <span>Clinical Scope &amp; Structure</span>
           </div>
           <h3 className="text-xl sm:text-2xl font-bold text-deep-ink font-sans">
             Anatomical Examination <span className="font-editorial text-clinical-teal">Explorer</span>
@@ -111,7 +111,7 @@ export function SignatureEyeViewer({ className }: { className?: string }) {
 
         <div className="flex items-center gap-1.5 bg-soft-sage/60 px-3 py-1.5 rounded-full text-xs font-medium text-deep-ink border border-clinical-border">
           <Eye className="w-3.5 h-3.5 text-clinical-teal" />
-          <span>Interactive 3D Art & Diagnostic Map</span>
+          <span>Anatomical Triage Guide</span>
         </div>
       </div>
 

@@ -1,6 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/Button";
 import { Calendar, MapPin, Clock, ArrowRight, ShieldCheck } from "lucide-react";
 

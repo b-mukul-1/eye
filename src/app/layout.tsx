@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Instrument_Serif } from "next/font/google";
+import { siteConfig } from "@/config/site";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -17,7 +18,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ocuhome.health"),
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "OcuHome | Clinical Eye Care Closer to Home",
     template: "%s | OcuHome",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     title: "OcuHome | Clinical Eye Care Closer to Home",
     description:
       "Bedside eye examinations, digital fundus imaging, and ophthalmologist oversight delivered with clinical rigor and warmth.",
-    url: "https://ocuhome.health",
+    url: siteConfig.url,
     siteName: "OcuHome",
     locale: "en_IN",
     type: "website",

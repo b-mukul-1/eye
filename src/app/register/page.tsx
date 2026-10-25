@@ -1,19 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
 import { DemoModeBanner } from "@/components/common/DemoModeBanner";
-import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
+import { SectionLabel } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { Input, Select } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
-import { User, ShieldCheck, Heart, ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 
 export default function RegisterPage() {
-  const router = useRouter();
   const [formData, setFormData] = useState({
     fullName: "",
     age: "",
@@ -30,20 +27,26 @@ export default function RegisterPage() {
     agreeTerms: false,
   });
 
+  const [formError, setFormError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.phone) {
-      alert("Please provide the full name and phone number.");
+    if (!formData.fullName.trim()) {
+      setFormError("Please enter the patient's full legal name.");
+      return;
+    }
+    if (!formData.phone.trim() || formData.phone.trim().length < 10) {
+      setFormError("Please enter a valid 10-digit mobile number.");
       return;
     }
     if (!formData.agreeTerms) {
-      alert("Please accept the terms and clinical privacy consent.");
+      setFormError("Please accept the terms and clinical privacy consent.");
       return;
     }
 
+    setFormError("");
     setIsSubmitting(true);
     setTimeout(() => {
       setIsSubmitting(false);
@@ -256,6 +259,13 @@ export default function RegisterPage() {
                     </span>
                   </label>
                 </div>
+
+                {formError && (
+                  <div className="p-3.5 rounded-xl bg-subtle-amber-light border border-subtle-amber/40 text-xs font-semibold text-subtle-amber-dark flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    <span>{formError}</span>
+                  </div>
+                )}
 
                 <Button type="submit" variant="primary" size="lg" className="w-full" disabled={isSubmitting}>
                   {isSubmitting ? "Creating Account..." : "Create Account & Continue"}

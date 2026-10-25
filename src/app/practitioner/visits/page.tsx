@@ -3,22 +3,15 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { demoTodayVisits, demoPractitioner } from "@/data/practitioner-demo";
-import { Badge, ClinicalStatusBadge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
+import { ClinicalStatusBadge } from "@/components/ui/Badge";
 import {
-  Calendar,
   Clock,
   MapPin,
   Phone,
-  Navigation,
   CheckCircle2,
   AlertCircle,
-  FileEdit,
   ArrowRight,
-  ShieldCheck,
   Stethoscope,
-  Briefcase,
-  Layers,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -62,7 +55,7 @@ export default function PractitionerVisitsPage() {
           </div>
           <div className="px-3">
             <span className="text-clinical-slate text-[10px] uppercase font-bold block">Remaining</span>
-            <span className="font-bold text-subtle-amber text-sm">{pendingCount}</span>
+            <span className="font-bold text-subtle-amber-dark text-sm">{pendingCount}</span>
           </div>
         </div>
       </div>
@@ -176,7 +169,7 @@ export default function PractitionerVisitsPage() {
                     </div>
 
                     <div className="flex items-start gap-2 pt-1">
-                      <AlertCircle className="w-4 h-4 text-subtle-amber shrink-0 mt-0.5" />
+                      <AlertCircle className="w-4 h-4 text-subtle-amber-dark shrink-0 mt-0.5" />
                       <span>
                         <strong className="text-deep-ink">Chief Complaint:</strong> {visit.chiefComplaint}
                       </span>

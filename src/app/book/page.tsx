@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
 import { DemoModeBanner } from "@/components/common/DemoModeBanner";
@@ -11,18 +10,10 @@ import { Input, Select } from "@/components/ui/Input";
 import { Badge } from "@/components/ui/Badge";
 import {
   MapPin,
-  Calendar,
-  Clock,
-  User,
   ShieldCheck,
   CheckCircle2,
-  ArrowRight,
-  ArrowLeft,
   AlertCircle,
-  Activity,
-  Eye,
 } from "lucide-react";
-import { siteConfig } from "@/config/site";
 
 const serviceablePincodes: Record<string, string> = {
   "110001": "Central Delhi (Delhi NCR)",
@@ -45,6 +36,7 @@ export default function BookingPage() {
   const [step, setStep] = useState<number>(1);
   const [pincode, setPincode] = useState("");
   const [pincodeError, setPincodeError] = useState("");
+  const [formError, setFormError] = useState("");
   const [detectedCity, setDetectedCity] = useState<string | null>(null);
 
   // Form State
@@ -400,18 +392,34 @@ export default function BookingPage() {
                 </div>
               </div>
 
+              {formError && (
+                <div className="p-3.5 rounded-xl bg-subtle-amber-light border border-subtle-amber/40 text-xs font-semibold text-subtle-amber-dark flex items-center gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0" />
+                  <span>{formError}</span>
+                </div>
+              )}
+
               <div className="flex items-center justify-between pt-4 border-t border-clinical-border">
-                <Button variant="ghost" size="sm" onClick={() => setStep(2)}>
+                <Button variant="ghost" size="sm" onClick={() => { setFormError(""); setStep(2); }}>
                   &larr; Back
                 </Button>
                 <Button
                   variant="primary"
                   size="md"
                   onClick={() => {
-                    if (!patientDetails.fullName || !patientDetails.phone) {
-                      alert("Please provide the patient name and contact phone number.");
+                    if (!patientDetails.fullName.trim()) {
+                      setFormError("Please enter the patient's full name to continue.");
                       return;
                     }
+                    if (!patientDetails.phone.trim() || patientDetails.phone.trim().length < 10) {
+                      setFormError("Please provide a valid 10-digit contact mobile number.");
+                      return;
+                    }
+                    if (!patientDetails.address.trim()) {
+                      setFormError("Please enter the full residential address for the home visit.");
+                      return;
+                    }
+                    setFormError("");
                     setStep(4);
                   }}
                 >
@@ -521,7 +529,7 @@ export default function BookingPage() {
                   As planned for Phase 1, this frontend collects and validates all diagnostic and
                   logistical requirements without pretending a production payment transaction or
                   dispatch lock occurred. In Phase 2, this workflow integrates directly into our
-                  HIPAA/DISHA practitioner route-management backend.
+                  DPDP Act (2023) and ABDM-aligned practitioner route-management backend.
                 </p>
               </div>
 

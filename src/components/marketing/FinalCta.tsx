@@ -1,6 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, Phone, ShieldCheck, MapPin } from "lucide-react";
 import { siteConfig } from "@/config/site";

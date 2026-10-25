@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/common/Navbar";
@@ -7,7 +8,13 @@ import { DemoModeBanner } from "@/components/common/DemoModeBanner";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { Check, ShieldCheck, ArrowRight, Eye, Droplet, Sparkles, RefreshCw } from "lucide-react";
+import { ShieldCheck, ArrowRight, Check, Eye, Droplet, Sparkles, RefreshCw } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Specialty Contact Lens Assessment & Fitting",
+  description:
+    "Comprehensive anterior segment biomicroscopy, corneal curvature assessment, and bespoke fitting for toric, multifocal, RGP, and scleral lenses.",
+};
 
 export default function ContactLensesPage() {
   return (

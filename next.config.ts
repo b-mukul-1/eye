@@ -12,6 +12,15 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async redirects() {
+    return [
+      {
+        source: "/corporate",
+        destination: "/corporate-camps",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

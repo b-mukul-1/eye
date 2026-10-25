@@ -1,9 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
-import { CheckCircle2, ArrowRight, ShieldCheck, MapPin, Sparkles } from "lucide-react";
+import { CheckCircle2, ArrowRight, ShieldCheck, MapPin } from "lucide-react";
 import { Signature3DEye } from "@/components/common/Signature3DEye";
 
 export function HeroSection() {
@@ -97,28 +96,20 @@ export function HeroSection() {
                   <span className="font-editorial text-deep-ink text-sm italic">
                     Optometrist home visit in South Delhi
                   </span>
-                  <span className="text-[11px] font-sans font-medium bg-soft-sage/80 px-2.5 py-0.5 rounded-full text-deep-ink border border-clinical-border">
-                    Bedside Diagnostic Protocol
+                  <span className="text-[11px] font-sans font-medium text-clinical-slate">
+                    Comprehensive portable evaluation
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* Signature 3D Animated Eye in Hero Area */}
-            <div className="absolute -bottom-6 left-2 sm:-bottom-8 sm:-left-6 bg-white/95 backdrop-blur-md border border-clinical-border rounded-2xl p-2.5 sm:p-3 shadow-card flex items-center gap-3 sm:gap-3.5 max-w-[260px] sm:max-w-[280px] select-none text-left z-20">
-              <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden border border-clinical-teal/30 shrink-0 bg-warm-ivory shadow-subtle flex items-center justify-center">
-                <Signature3DEye size={58} />
-              </div>
-              <div className="space-y-0.5">
-                <div className="text-[10px] font-semibold uppercase tracking-wider text-clinical-teal">
-                  Visual Identity
-                </div>
-                <div className="text-xs font-bold text-deep-ink leading-tight">
-                  Interactive Brand Eye
-                </div>
-                <div className="text-[10px] text-clinical-slate leading-tight">
-                  Subtle responsive gaze &bull; Natural motion
-                </div>
+            {/* Signature 3D Animated Eye in Hero Composition */}
+            <div
+              className="absolute -bottom-5 -left-3 sm:-bottom-6 sm:-left-5 rounded-full bg-white/95 backdrop-blur-xs p-1.5 border border-clinical-border shadow-elevated z-20 flex items-center justify-center select-none"
+              title="OcuHome Signature Eye"
+            >
+              <div className="relative rounded-full overflow-hidden border border-clinical-teal/20 bg-warm-ivory flex items-center justify-center">
+                <Signature3DEye size={68} />
               </div>
             </div>
           </div>

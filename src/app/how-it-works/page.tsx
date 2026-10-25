@@ -1,6 +1,5 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import type { Metadata } from "next";
 import { Navbar } from "@/components/common/Navbar";
 import { Footer } from "@/components/common/Footer";
 import { DemoModeBanner } from "@/components/common/DemoModeBanner";
@@ -8,7 +7,13 @@ import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/T
 import { HowItWorksSteps } from "@/components/marketing/HowItWorksSteps";
 import { TrustPillars } from "@/components/common/TrustPillars";
 import { Button } from "@/components/ui/Button";
-import { ShieldCheck, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "How It Works | Home Optometry & Remote Ophthalmologist Oversight",
+  description:
+    "Learn how OcuHome coordinates qualified optometrist home visits, sterile bedside diagnostics, and remote supervising ophthalmologist reviews.",
+};
 
 export default function HowItWorksPage() {
   return (

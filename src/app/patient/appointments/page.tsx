@@ -4,13 +4,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { demoAppointments, demoPatient } from "@/data/patient-demo";
 import { Appointment, AppointmentStatus } from "@/types/clinical";
-import { Badge, ClinicalStatusBadge } from "@/components/ui/Badge";
+import { ClinicalStatusBadge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import {
   Calendar,
   Clock,
   MapPin,
-  User,
   ShieldCheck,
   AlertCircle,
   CheckCircle2,
@@ -100,7 +99,7 @@ export default function PatientAppointmentsPage() {
           <button
             key={tab.key}
             type="button"
-            onClick={() => setFilter(tab.key as any)}
+            onClick={() => setFilter(tab.key as "all" | AppointmentStatus)}
             className={cn(
               "px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 shrink-0",
               filter === tab.key
@@ -126,12 +125,24 @@ export default function PatientAppointmentsPage() {
       {/* Appointments List */}
       <div className="space-y-4">
         {filteredAppointments.length === 0 ? (
-          <div className="bg-white border border-clinical-border rounded-xl p-10 text-center space-y-3">
-            <Calendar className="w-8 h-8 text-clinical-slate/40 mx-auto" />
-            <h3 className="text-base font-bold text-deep-ink">No visits found</h3>
-            <p className="text-xs text-clinical-slate max-w-sm mx-auto">
-              There are no appointments matching the selected filter criteria.
-            </p>
+          <div className="bg-white border border-clinical-border rounded-2xl p-10 text-center space-y-4 shadow-subtle">
+            <div className="w-12 h-12 rounded-full bg-warm-neutral/50 text-clinical-teal flex items-center justify-center mx-auto">
+              <Calendar className="w-6 h-6" />
+            </div>
+            <div className="max-w-md mx-auto space-y-1">
+              <h3 className="text-base font-bold text-deep-ink">No visits found under this view</h3>
+              <p className="text-xs text-clinical-slate">
+                There are no appointments matching the &ldquo;{filter}&rdquo; filter. You can clear the filter or schedule a new home consultation.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+              <Button variant="outline" size="sm" onClick={() => setFilter("all")}>
+                Show All Visits
+              </Button>
+              <Button href="/book" variant="primary" size="sm" icon={<ArrowRight className="w-3.5 h-3.5" />}>
+                Request New Visit
+              </Button>
+            </div>
           </div>
         ) : (
           filteredAppointments.map((apt) => {
@@ -207,7 +218,7 @@ export default function PatientAppointmentsPage() {
                         <span>{apt.location}</span>
                       </div>
                       <div className="flex items-start gap-2 pt-1">
-                        <AlertCircle className="w-4 h-4 text-subtle-amber shrink-0 mt-0.5" />
+                        <AlertCircle className="w-4 h-4 text-subtle-amber-dark shrink-0 mt-0.5" />
                         <span>
                           <strong className="text-deep-ink font-medium">Chief reason:</strong>{" "}
                           {apt.chiefComplaint}

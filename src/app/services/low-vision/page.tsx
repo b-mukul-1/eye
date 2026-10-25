@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/common/Navbar";
@@ -7,7 +8,13 @@ import { DemoModeBanner } from "@/components/common/DemoModeBanner";
 import { EditorialHeading, SectionLabel, LeadParagraph } from "@/components/ui/Typography";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { Check, ShieldCheck, ArrowRight, Eye, Sun, BookOpen, Search, Compass, Users } from "lucide-react";
+import { ArrowRight, Eye, Sun, BookOpen, Search, Compass, Users } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Low Vision Assessment & Visual Rehabilitation",
+  description:
+    "Functional vision evaluation, optical and digital magnification solutions, and environmental ergonomics to maximize remaining sight for low-vision patients.",
+};
 
 export default function LowVisionCarePage() {
   return (

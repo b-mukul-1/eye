@@ -131,12 +131,12 @@ export const demoEncounters: ClinicalEncounter[] = [
     recordingOptometrist: {
       id: "optom-priya-sharma",
       name: "Priya Sharma, B.Optom",
-      registrationNumber: "OCI-OPT-10928",
+      registrationNumber: "Schema Sample (e.g. OCI-OPT-10928)",
     },
     reviewingOphthalmologist: {
       id: "dr-ananya-rao",
       name: "Dr. Ananya Rao, MS (Ophthalmology)",
-      registrationNumber: "DMC-48291",
+      registrationNumber: "Schema Sample (e.g. DMC-48291)",
       status: "countersigned",
       signOffTimestamp: "19 Mar 2026, 09:15 AM IST",
       mdComments:

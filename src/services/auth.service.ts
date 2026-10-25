@@ -26,9 +26,9 @@ export const demoAuthUsers: Record<string, AuthUser> = {
     name: "Priya Sharma, B.Optom",
     role: "optometrist",
     email: "priya.sharma@ocuhome.in",
-    displayId: "Lic: OCI-OPT-10928",
+    displayId: "Demo Staff Optometrist",
     isDemonstration: true,
-    registrationNumber: "OCI-OPT-10928",
+    registrationNumber: "Schema Sample (e.g. OCI-OPT-10928)",
     authorizedScope: "Assigned daily home-visit encounters & active care relationships only",
   },
   ophthalmologist: {
@@ -36,9 +36,9 @@ export const demoAuthUsers: Record<string, AuthUser> = {
     name: "Dr. Ananya Rao, MS",
     role: "ophthalmologist",
     email: "ananya.rao@ocuhome.in",
-    displayId: "Reg: DMC-48291",
+    displayId: "Demo Consulting Ophthalmologist",
     isDemonstration: true,
-    registrationNumber: "DMC-48291",
+    registrationNumber: "Schema Sample (e.g. DMC-48291)",
     authorizedScope: "Assigned patient diagnostic queues, retinal triage & hospital referrals",
   },
 };

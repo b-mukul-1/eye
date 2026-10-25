@@ -33,7 +33,7 @@ export function ServicesOverview() {
           <div className="bg-white border border-clinical-border rounded-2xl p-6 sm:p-10 shadow-subtle grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
             <div className="lg:col-span-5 relative aspect-[4/3] rounded-xl overflow-hidden bg-warm-neutral/30 border border-clinical-border">
               <Image
-                src="/images/hero-home-exam.jpg"
+                src="/images/patient-counseling-care.jpg"
                 alt="Comprehensive eye assessment"
                 fill
                 sizes="(max-width: 1024px) 100vw, 40vw"

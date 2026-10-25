@@ -22,7 +22,7 @@ export const specialistProfiles: SpecialistProfile[] = [
     name: "Dr. Ananya Rao",
     title: "Senior Consulting Ophthalmologist",
     qualifications: "MBBS, MS (Ophthalmology), DNB, FICO (Cornea & Anterior Segment)",
-    registrationNumber: "MCI/DMC-48291 (Verified Registry)",
+    registrationNumber: "Schema Sample (e.g. DMC-48291)",
     specialty: "Ophthalmology & Surgical Triage",
     clinicalInterests: [
       "Corneal Diseases & Dry Eye",
@@ -34,7 +34,7 @@ export const specialistProfiles: SpecialistProfile[] = [
     languages: ["English", "Hindi", "Kannada"],
     consultationFormats: ["clinic-appointment"],
     clinicLocations: ["South Extension Clinic, New Delhi", "Indiranagar Center, Bengaluru"],
-    photo: "/images/ophthalmologist-review.jpg",
+    photo: "/images/specialist-dr-radhika-sharma.jpg",
     demonstrationNotice: "Demonstration profile illustrating senior ophthalmology oversight and countersignature workflow.",
     availableNextDate: "Tuesday, 28 Oct 2026",
     bio: "Senior cornea and anterior segment specialist supervising diagnostic protocols, digital fundus triage, and hospital surgical referral pathways.",
@@ -44,7 +44,7 @@ export const specialistProfiles: SpecialistProfile[] = [
     name: "Priya Sharma, B.Optom",
     title: "Senior Clinical Optometrist & Pediatric Specialist",
     qualifications: "B.Optom (Elite School of Optometry), Fellowship in Binocular Vision",
-    registrationNumber: "OCI-OPT-10928 (Registered Optometrist)",
+    registrationNumber: "Schema Sample (e.g. OCI-OPT-10928)",
     specialty: "Amblyopia & Vision Therapy",
     clinicalInterests: [
       "Pediatric Amblyopia Assessment",
@@ -56,7 +56,7 @@ export const specialistProfiles: SpecialistProfile[] = [
     languages: ["English", "Hindi", "Punjabi"],
     consultationFormats: ["home-visit", "clinic-appointment"],
     clinicLocations: ["Saket Center, New Delhi", "Sector 29, Gurugram"],
-    photo: "/images/amblyopia-therapy-session.jpg",
+    photo: "/images/specialist-dr-priya-nair.jpg",
     demonstrationNotice: "Demonstration profile illustrating qualified pediatric optometry and binocular vision therapy services.",
     availableNextDate: "Wednesday, 29 Oct 2026",
     bio: "Specializes in age-appropriate visual development testing, stereopsis evaluation, and home-guided binocular vision exercises for children.",
@@ -66,7 +66,7 @@ export const specialistProfiles: SpecialistProfile[] = [
     name: "Vikram Menon, M.Optom",
     title: "Lead Contact Lens & Cornea Specialist",
     qualifications: "M.Optom, FIACLE (International Association of Contact Lens Educators)",
-    registrationNumber: "KMC-OPT-7721 (Registered Optometrist)",
+    registrationNumber: "Schema Sample (e.g. KMC-OPT-7721)",
     specialty: "Contact Lens Fitting & Anterior Segment",
     clinicalInterests: [
       "Specialty Contact Lenses (Toric, Multifocal)",
@@ -88,7 +88,7 @@ export const specialistProfiles: SpecialistProfile[] = [
     name: "Rajesh Kulkarni, B.Optom, BCO",
     title: "Board Certified Clinical Ocularist",
     qualifications: "B.Optom, Certified Ocularist (Ocular Prosthetics)",
-    registrationNumber: "AIOC-7041 (Board Certified Ocularist)",
+    registrationNumber: "Schema Sample (e.g. AIOC-7041)",
     specialty: "Prosthetic Eye Services & Anophthalmic Care",
     clinicalInterests: [
       "Custom Hand-Painted Acrylic Ocular Prostheses",
@@ -110,7 +110,7 @@ export const specialistProfiles: SpecialistProfile[] = [
     name: "Sunita Deshmukh, M.Optom",
     title: "Low Vision Rehabilitation Specialist",
     qualifications: "M.Optom, Fellowship in Low Vision Care (LV Prasad Eye Institute)",
-    registrationNumber: "MMC-OPT-9102 (Registered Optometrist)",
+    registrationNumber: "Schema Sample (e.g. MMC-OPT-9102)",
     specialty: "Low Vision Assessment & Visual Rehabilitation",
     clinicalInterests: [
       "Functional Vision & Contrast Sensitivity Evaluation",
@@ -132,7 +132,7 @@ export const specialistProfiles: SpecialistProfile[] = [
     name: "Neha Verma, B.Optom",
     title: "Lead Optometrist — Mobile Care & Refraction",
     qualifications: "B.Optom, Trained in Portable Clinical Diagnostics",
-    registrationNumber: "OCI-OPT-14221 (Registered Optometrist)",
+    registrationNumber: "Schema Sample (e.g. OCI-OPT-14221)",
     specialty: "Primary Eye Care & Senior Home Visits",
     clinicalInterests: [
       "Bedside Subjective & Objective Refraction",
