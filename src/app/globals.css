@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --color-warm-ivory: #F8F7F2;
+  --color-deep-ink: #16282C;
+  --color-clinical-teal: #397E7A;
+  --color-clinical-teal-dark: #285E5A;
+  --color-clinical-teal-light: #EFF6F5;
+  --color-soft-sage: #E1EBE5;
+  --color-soft-sage-light: #F3F7F5;
+  --color-warm-neutral: #E9E4DA;
+  --color-warm-neutral-light: #F4F1EA;
+  --color-subtle-amber: #D9AE70;
+  --color-subtle-amber-dark: #B68A48;
+  --color-subtle-amber-light: #FAF4EC;
+  --color-clinical-slate: #55686B;
+  --color-clinical-border: rgba(22, 40, 44, 0.08);
+  --color-clinical-border-strong: rgba(22, 40, 44, 0.18);
+
+  --font-sans: var(--font-manrope), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+}
+
+:root {
+  --background: #F8F7F2;
+  --foreground: #16282C;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #F8F7F2;
+  color: #16282C;
+}
+
+body {
+  background-color: #F8F7F2;
+  color: #16282C;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Editorial Serif Utility */
+.font-editorial {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+/* Refined Subtle Box Shadows */
+.shadow-subtle {
+  box-shadow: 0 1px 3px rgba(22, 40, 44, 0.04), 0 4px 12px rgba(22, 40, 44, 0.03);
+}
+
+.shadow-elevated {
+  box-shadow: 0 4px 20px rgba(22, 40, 44, 0.06), 0 1px 3px rgba(22, 40, 44, 0.03);
+}
+
+.shadow-card {
+  box-shadow: 0 10px 30px -10px rgba(22, 40, 44, 0.08);
+}
+
+/* Precision Border Utilities */
+.border-subtle {
+  border-color: rgba(22, 40, 44, 0.08);
+}
+
+.border-strong {
+  border-color: rgba(22, 40, 44, 0.18);
+}
+
+/* Custom scrollbar for high-end feel */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F7F2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9AE70;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #397E7A;
+}
+
+/* Accessible focus ring */
+*:focus-visible {
+  outline: 2px solid #397E7A;
+  outline-offset: 2px;
+}
+
+/* Subtle, restrained motion utilities */
+@keyframes fadeInSubtle {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInSubtle 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-entrance {
+  animation: fadeInSubtle 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Accessible Reduced Motion Guarantee */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
